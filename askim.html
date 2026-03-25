@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Senin İçin ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 100px;
+    font-size: 40px;
+}
+
+button {
+    background: #ff4d6d;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#mesaj {
+    display: none;
+    margin-top: 40px;
+    font-size: 22px;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* kalpler */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(100vh); opacity: 1;}
+    100% {transform: translateY(-10vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Bir şeye hazır ol... ❤️</h1>
+
+<button onclick="basla()">Tıkla</button>
+
+<div id="mesaj">
+    <h2>İyi ki doğdun sevgilim 🎂❤️</h2>
+    <p>
+    Belki yanında değilim ama…  
+    kalbim her zaman seninle.  
+    </p>
+    <p>
+    Sen benim en güzel hikayemsin…  
+    ve bu hikaye daha yeni başlıyor.  
+    </p>
+    <p>
+    Seni çok seviyorum 💖
+    </p>
+</div>
+
+<audio id="muzik" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function basla() {
+    document.getElementById("mesaj").style.display = "block";
+    document.getElementById("muzik").play();
+
+    // kalp efekti
+    setInterval(() => {
+        let kalp = document.createElement("div");
+        kalp.classList.add("heart");
+        kalp.innerHTML = "❤️";
+        kalp.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(kalp);
+
+        setTimeout(() => {
+            kalp.remove();
+        }, 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
